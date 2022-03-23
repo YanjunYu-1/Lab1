@@ -8,9 +8,11 @@ namespace Lab1.Models
         public int Id { get; set; }
 
         [StringLength(25, MinimumLength = 3)]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [StringLength(25, MinimumLength = 3)]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [DataType(DataType.PhoneNumber)]

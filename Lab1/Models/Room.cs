@@ -8,6 +8,7 @@ namespace Lab1.Models
         public int Id { get; set; }
 
         [Key]
+        [Display(Name = "Room Number")]
         public int RoomNumber { get; set; }
         public int Capacity { get; set; }
         public Section section { get; set; }
