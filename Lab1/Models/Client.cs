@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lab1.Models
 {
@@ -9,6 +10,7 @@ namespace Lab1.Models
 
         [StringLength(25, MinimumLength = 3)]
         [Display(Name = "First Name")]
+        [Column(TypeName = "nvarchar(50)")]
         public string FirstName { get; set; }
 
         [StringLength(25, MinimumLength = 3)]
@@ -18,5 +20,12 @@ namespace Lab1.Models
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"/^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$/")]
         public string PhoneNumber { get; set; }
+
+        [InverseProperty("PreviousClient")]
+        public virtual ICollection<Room> PreviousRooms { get; set; }
+
+        //public int CurrentRoomId { get; set; }
+        [InverseProperty("CurrentClient")]
+        public virtual ICollection<Room> CurrentRooms { get; set; }
     }
 }
